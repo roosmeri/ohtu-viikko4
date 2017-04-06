@@ -1,2 +1,6 @@
 pekka;akkep
 jukka;akkuj
+panther;rehtnap
+Panther;Panther2
+PantherPanther;rehtnap
+PantherP;rehtnap
