@@ -29,6 +29,20 @@ public class Stepdefs {
         element.click();
     }
 
+    @Given("^user with username \"([^\"]*)\" with password \"([^\"]*)\" is successfully created$")
+    public void user_with_username_with_password_is_successfully_created(String username, String password) throws Throwable {
+        new_user_is_selected();
+        String passConf = password;
+        createUserWith(username, password, passConf);
+    }
+
+    @Given("^user with username \"([^\"]*)\" and password \"([^\"]*)\" is unsuccessfully created$")
+    public void user_with_username_and_password_is_unsuccessfully_created(String username, String password) throws Throwable {
+        new_user_is_selected();
+        String passConf = password;
+        createUserWith(username, password, passConf);
+    }
+
     @Then("^a new user is created succesfully$")
     public void a_new_user_is_created_succesfully() throws Throwable {
         pageHasContent("Welcome to Ohtu Application!");
@@ -44,7 +58,8 @@ public class Stepdefs {
     public void username_password_and_password_confirmation_are_given(String username, String password, String passwordConfirmation) throws Throwable {
         createUserWith(username, password, passwordConfirmation);
     }
-     @When("^a too short username \"([^\"]*)\", password \"([^\"]*)\" and password confirmation \"([^\"]*)\" are given$")
+
+    @When("^a too short username \"([^\"]*)\", password \"([^\"]*)\" and password confirmation \"([^\"]*)\" are given$")
     public void a_too_short_username_password_and_password_confirmation_are_given(String username, String password, String passwordConfirmation) throws Throwable {
         createUserWith(username, password, passwordConfirmation);
     }
@@ -68,7 +83,6 @@ public class Stepdefs {
     public void username_password_and_a_different_password_confirmation_are_given(String username, String password, String passwordConfirmation) throws Throwable {
         createUserWith(username, password, passwordConfirmation);
     }
-
 
     @When("^username \"([^\"]*)\" and password \"([^\"]*)\" are given$")
     public void username_and_password_are_given(String username, String password) throws Throwable {
